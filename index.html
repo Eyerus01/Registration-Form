@@ -1,45 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Registration | Join Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Registration Form</h1>
-    <p>Please fill out this form with the required information</p>
-    <form method="post" action='https://register-demo.freecodecamp.org'>
-      <fieldset>
-        <label for="first-name">Enter Your First Name: <input id="first-name" name="first-name" type="text" required /></label>
-        <label for="last-name">Enter Your Last Name: <input id="last-name" name="last-name" type="text" required /></label>
-        <label for="email">Enter Your Email: <input id="email" name="email" type="email" required /></label>
-        <label for="new-password">Create a New Password: <input id="new-password" name="new-password" type="password" pattern="[a-z0-5]{8,}" required /></label>
-      </fieldset>
-      <fieldset>
-        <legend>Account type (required)</legend>
-        <label for="personal-account"><input id="personal-account" type="radio" name="account-type" class="inline" checked /> Personal</label>
-        <label for="business-account"><input id="business-account" type="radio" name="account-type" class="inline" /> Business</label>
-      </fieldset>
-      <fieldset>
-        <label for="profile-picture">Upload a profile picture: <input id="profile-picture" type="file" name="file" /></label>
-        <label for="age">Input your age (years): <input id="age" type="number" name="age" min="13" max="120" /></label>
-        <label for="referrer">How did you hear about us?
-          <select id="referrer" name="referrer">
-            <option value="">(select one)</option>
-            <option value="1">freeCodeCamp News</option>
-            <option value="2">freeCodeCamp YouTube Channel</option>
-            <option value="3">freeCodeCamp Forum</option>
-            <option value="4">Other</option>
-          </select>
-        </label>
-        <label for="bio">Provide a bio:
-          <textarea id="bio" name="bio" rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
-        </label>
-      </fieldset>
-      <label for="terms-and-conditions">
-        <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" /> I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
-</html>
+</head>
+<body class="dark-theme">
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">REGISTER<span>.</span></div>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </nav>
+
+    <main class="container">
+        <div class="form-wrapper">
+            <header>
+                <h1>Create Account</h1>
+                <p>Start your journey with us today.</p>
+            </header>
+
+            <form id="registration-form" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input id="first-name" name="first-name" type="text" placeholder="John" required />
+                        <span class="error-msg">Please input a correct name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input id="last-name" name="last-name" type="text" placeholder="Doe" required />
+                        <span class="error-msg">Please input a correct name</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
+                    <span class="error-msg">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input id="new-password" name="new-password" type="password" placeholder="Min 8 characters" required />
+                        <button type="button" id="toggle-password" class="toggle-password">Show</button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                    <span class="error-msg">Password must be at least 8 characters</span>
+                </div>
+
+                <div class="account-type-group">
+                    <label>Account Type</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="account-type" value="personal" checked />
+                            <span class="custom-radio"></span>
+                            Personal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="account-type" value="business" />
+                            <span class="custom-radio"></span>
+                            Business
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Short Bio</label>
+                    <textarea id="bio" name="bio" rows="3" placeholder="Tell us a bit about yourself..." required></textarea>
+                    <span class="error-msg">Please provide a meaningful bio (min 10 chars)</span>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input id="terms" type="checkbox" required name="terms" />
+                        <span class="custom-checkbox"></span>
+                        I agree to the <a href="#">Terms & Conditions</a>
+                    </label>
+                    <span class="error-msg">You must accept the terms</span>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span>Create Account</span>
+                    <div class="loader"></div>
+                </button>
+            </form>
+
+            <div id="success-message" class="hidden">
+                <div class="success-icon">✓</div>
+                <h2>Registration Successful!</h2>
+                <p>Welcome aboard. Check your email to verify your account.</p>
+                <button onclick="location.reload()" class="secondary-btn">Go Back</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
